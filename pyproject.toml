@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "feature-forger"
+version = "0.1.2"
+description = "A feature building framework to extend with your common features and compute on demand."
+authors = ["iccyp <shingle.knitter.0i@icloud.com>"]
+readme = "README.md"
+packages = [{include = "feature_forger"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+prefect = "^2.10.7"
+pandas = "^2.0.1"
+dependency-injector = "^4.41.0"
+openpyxl = "^3.1.2"
+pydantic = "^1.10.7"
+pandera = "^0.14.5"
+networkx = "^3.1"
+matplotlib = "^3.7.1"
+pydot = "^1.4.2"
+greenlet = "^2.0.2"
+ipython = "^8.13.2"
+pillow = "^9.5.0"
+
+
+[tool.poetry.group.tests.dependencies]
+pytest = "^7.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
