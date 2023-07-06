@@ -1,4 +1,6 @@
-from typing import Type, Tuple, runtime_checkable, Protocol, Optional, Callable
+from dataclasses import Field, field
+from typing import Type, Tuple, runtime_checkable, Protocol, Optional, \
+    Callable, Sequence
 
 import pandas as pd
 from pydantic.dataclasses import dataclass
@@ -15,9 +17,9 @@ class FeatureMeta(type):
 class Feature:
     __metaclass__ = FeatureMeta
     col_name: str
-    description: str
     entity_model: Type[EntityModel]
-    dependencies: Tuple["Feature"]
+    description: Optional[str] = None
+    dependencies: Sequence["Feature"] = field(default_factory=tuple)
 
     feature_name: Optional[str] = None
     row_level_function: Optional[Callable[[pd.Series], pd.Series]] = None
